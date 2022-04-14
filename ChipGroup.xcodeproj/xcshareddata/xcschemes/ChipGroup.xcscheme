@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FB70A0327BABB54005368D4"
-               BuildableName = "ExampleChipGroup.app"
+               BuildableName = "ChipGroup.app"
                BlueprintName = "ChipGroup"
                ReferencedContainer = "container:ChipGroup.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FB70A1427BABB55005368D4"
-               BuildableName = "ExampleChipGroupTests.xctest"
+               BuildableName = "ChipGroupTests.xctest"
                BlueprintName = "ChipGroupTests"
                ReferencedContainer = "container:ChipGroup.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FB70A1F27BABB55005368D4"
-               BuildableName = "ExampleChipGroupUITests.xctest"
+               BuildableName = "ChipGroupUITests.xctest"
                BlueprintName = "ChipGroupUITests"
                ReferencedContainer = "container:ChipGroup.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FB70A0327BABB54005368D4"
-            BuildableName = "ExampleChipGroup.app"
+            BuildableName = "ChipGroup.app"
             BlueprintName = "ChipGroup"
             ReferencedContainer = "container:ChipGroup.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FB70A0327BABB54005368D4"
-            BuildableName = "ExampleChipGroup.app"
+            BuildableName = "ChipGroup.app"
             BlueprintName = "ChipGroup"
             ReferencedContainer = "container:ChipGroup.xcodeproj">
          </BuildableReference>

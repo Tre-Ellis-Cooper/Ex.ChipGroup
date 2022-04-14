@@ -21,10 +21,11 @@ struct ChipGroupLayout<Element: Identifiable> {
     /// - parameter containerWidth: The width of the container.
     /// - parameter spacing: The desired spacing between chips.
     /// - returns: An array representing each element and it's laidout position.
-    func traits(for chipSizes: [Element.ID: CGSize],
-                in containerWidth: CGFloat,
-                with spacing: Spacing) -> [Trait] {
-        
+    func traits(
+        for chipSizes: [Element.ID: CGSize],
+        in containerWidth: CGFloat,
+        with spacing: Spacing
+    ) -> [Trait] {
         var pointer = CGPoint.zero
         var lineHeight = CGFloat.zero
         var traits: [Trait] = []
@@ -39,7 +40,7 @@ struct ChipGroupLayout<Element: Identifiable> {
                 lineHeight = .zero
             }
 
-            traits.append(.init(element: element, position: pointer))
+            traits.append(Trait(element: element, position: pointer))
             pointer.x += size.width + spacing.horizontal
             lineHeight = max(lineHeight, size.height)
         }
