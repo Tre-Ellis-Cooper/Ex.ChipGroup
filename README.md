@@ -11,9 +11,9 @@
 ###### Stay tuned for updates to the series:
 [![Follow](https://img.shields.io/github/followers/Tre-Ellis-Cooper?style=social)](https://github.com/Tre-Ellis-Cooper)
 
-![Repo Size](https://img.shields.io/github/repo-size/Tre-Ellis-Cooper/example-chipgroup-swiftui?color=green)
-![Lines of Code](https://img.shields.io/tokei/lines/github/Tre-Ellis-Cooper/example-chipgroup-swiftui?color=green&label=lines%20of%20code)
-![Last Commit](https://img.shields.io/github/last-commit/Tre-Ellis-Cooper/example-chipgroup-swiftui?color=C23644)
+![Repo Size](https://img.shields.io/github/repo-size/Tre-Ellis-Cooper/Ex.ChipGroup?color=green)
+![Lines of Code](https://img.shields.io/tokei/lines/github/Tre-Ellis-Cooper/Ex.ChipGroup?color=green&label=lines%20of%20code)
+![Last Commit](https://img.shields.io/github/last-commit/Tre-Ellis-Cooper/Ex.ChipGroup?color=C23644)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Tre'Ellis%20Cooper-blue)](https://www.linkedin.com/in/tre-ellis-cooper-629306106)
 
 ## Code Discussion
