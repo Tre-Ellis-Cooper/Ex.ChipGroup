@@ -8,17 +8,10 @@
 import SwiftUI
 
 /// A struct representing an example chip element.
-struct Chip: Identifiable {
-    let id = UUID()
+struct Chip {
     let title: String
-    let colorName = RandomChipColor
-    
-    private static var RandomChipColor: String {
-        return [
-            String.Asset.chipColor1,
-            String.Asset.chipColor2,
-            String.Asset.chipColor3
-        ]
-        .randomElement() ?? String.Asset.chipColor1
-    }
+}
+
+extension Chip: Identifiable {
+    var id: String { title }
 }

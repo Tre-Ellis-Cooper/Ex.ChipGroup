@@ -12,45 +12,49 @@ import SwiftUI
 /// - note: Dynamically line wraps the provided chip elements according
 ///         to the allowed width. Only allows left-alignment
 struct ChipGroup<Element: Identifiable, Chip: View>: View {
-    @State private var sizes = [Element.ID: CGSize]()
-    @State private var width = CGFloat.zero
-    
-    private var spacing = (CGFloat(5), CGFloat(10))
-    
     let chipView: (Element) -> Chip
-    let layout: ChipGroupLayout<Element>
+    let elements: [Element]
+    
+    @State private var chipSizes = [Element.ID: CGSize]()
+    @State private var allowedWidth = CGFloat.zero
+    
+    private var allowedWidthKey = "allowed-width-key"
+    private var chipSpacing: ChipGroupLayout.Spacing = (5, 10)
     
     init(elements: [Element],
          @ViewBuilder chipView: @escaping (Element) -> Chip) {
         self.chipView = chipView
-        self.layout = .init(elements: elements)
+        self.elements = elements
     }
     
     var body: some View {
-        let layoutTraits = layout
-            .traitsForChipSizes(sizes, in: width, with: spacing)
+        let layout = ChipGroupLayout(elements: elements)
+        let traits = layout.traits(for: chipSizes,
+                                   in: allowedWidth,
+                                   with: chipSpacing)
         
         return VStack(spacing: .zero) {
             Spacer()
                 .frame(height: .zero)
                 .frame(maxWidth: .infinity)
-                .relaySizeData(withKey: "chip-group-size")
+                .relaySizeData(withKey: allowedWidthKey)
             ZStack(alignment: .topLeading) {
-                ForEach(layoutTraits) { trait in
+                ForEach(traits) { trait in
                     chipView(trait.element)
                         .relaySizeData(withKey: trait.element.id)
+                        .fixedSize(horizontal: false, vertical: true)
                         .alignmentGuide(.leading) { _ in -trait.position.x }
                         .alignmentGuide(.top) { _ in -trait.position.y }
                 }
             }
-            .frame(
-                minWidth: .zero,
-                maxWidth: .infinity,
-                alignment: .leading
-            )
+            .frame(minWidth: .zero,
+                   maxWidth: .infinity,
+                   alignment: .leading)
         }
-        .readSizeData { sizes = $0 }
-        .readSizeData(forKey: "chip-group-size") { width = $0.width }
+        .readSizeData { chipSizes = $0 }
+        .readSizeData(forKey: allowedWidthKey) {
+            allowedWidth = $0.width
+        }
     }
     
     /// Sets the spacing between chips within this chip group element.
@@ -68,7 +72,7 @@ struct ChipGroup<Element: Identifiable, Chip: View>: View {
     func chipSpacing(horizontal: CGFloat, vertical: CGFloat) -> Self {
         var mutableSelf = self
         
-        mutableSelf.spacing = (horizontal, vertical)
+        mutableSelf.chipSpacing = (horizontal, vertical)
         return mutableSelf
     }
 }

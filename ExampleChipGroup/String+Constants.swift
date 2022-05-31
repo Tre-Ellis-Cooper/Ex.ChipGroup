@@ -10,16 +10,34 @@ import Foundation
 /// An extension housing string constants.
 extension String {
     enum Display {
+        static var ex = "Ex."
+        static var chipGroup = "ChipGroup - SwiftUI"
         static var chips = "Chips"
-        static var enterChipTitle = "Enter chip title."
-        static var exampleChipGroup = "Example chip group"
+        static var clearAll = "All Clear"
+        static var addChip = "+ Add chip"
         static var exampleChip = "Example Chip"
-        static var title = "Title"
+        static var deploymentTarget = "Target: iOS \(String.Utility.minimumOS)"
     }
     
-    enum Asset {
-        static var chipColor1 = "ChipColor1"
-        static var chipColor2 = "ChipColor2"
-        static var chipColor3 = "ChipColor3"
+    enum AssetKey {
+        static var altBackgroundColor = "AltBackgroundColor"
+        static var backgroundColor = "BackgroundColor"
+        static var altHighlightColor = "AltHighlightColor"
+        static var highlightColor = "HighlightColor"
+        static var textColor = "TextColor"
+        static var closeIcon = "x.circle"
+        static var trashIcon = "trash"
+    }
+    
+    enum Utility {
+        static var notAvailable = "N/A"
+        static var minimumOS: String {
+            guard let plist = Bundle.main.infoDictionary,
+                  let target = plist["MinimumOSVersion"] as? String else {
+                return notAvailable
+            }
+            
+            return target
+        }
     }
 }

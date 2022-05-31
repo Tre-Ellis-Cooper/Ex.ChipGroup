@@ -9,17 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var newTitle = ""
+    @State private var focused = false
     @State private var chips = [
         Chip(title: String.Display.exampleChip)
     ]
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 30) {
-                Text(String.Display.exampleChipGroup)
-                    .font(.title2.bold())
-                TitleField()
-                ChipContainer()
+            VStack(alignment: .leading, spacing: 40) {
+                Header()
+                VStack(alignment: .leading, spacing: 12) {
+                    TitleField()
+                    ChipContainer()
+                }
             }
             .padding(20)
         }
@@ -30,29 +32,87 @@ struct ContentView: View {
         )
     }
     
+    @ViewBuilder private func ClearFieldButton() -> some View {
+        let action: () -> Void = { newTitle = "" }
+        
+        Button(action: action) {
+            Image(systemName: String.AssetKey.closeIcon)
+                .resizable()
+                .frame(width: 13, height: 13)
+        }
+    }
+    
+    @ViewBuilder private func ClearChipButton() -> some View {
+        let action: () -> Void = { chips = [] }
+        let disabled = chips.isEmpty
+        
+        Button(action: action) {
+            Label(String.Display.clearAll,
+                  systemImage: String.AssetKey.trashIcon)
+        }
+        .foregroundColor(Color.altHightlightColor)
+        .opacity(disabled ? 0.4 : 1)
+        .disabled(disabled)
+    }
+    
     @ViewBuilder private func ChipContainer() -> some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 14) {
             HStack {
                 Text(String.Display.chips)
-                    .font(.headline.bold())
                 Spacer()
-                DeleteButton()
+                ClearChipButton()
             }
+            .font(.footnote.bold())
+
             // MARK: ChipGroup
             ChipGroup(elements: chips, chipView: ChipView)
+                .padding()
+                .background(
+                    Color.altBackgroundColor
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                )
         }
     }
     
     @ViewBuilder private func ChipView(_ chip: Chip) -> some View {
-        Text(chip.title)
-            .padding(.vertical, 8)
-            .padding(.horizontal, 16)
-            .font(.system(size: 16, weight: .semibold))
-            .foregroundColor(.backgroundColor)
-            .background(
-                Color(chip.colorName)
-                    .clipShape(Capsule())
-            )
+        HStack(spacing: 6) {
+            Text(chip.title)
+                .bold()
+            Color.textColor.opacity(0.2)
+                .frame(width: 1)
+            Text("\(chip.title.count)")
+                .opacity(0.5)
+        }
+        .font(.caption)
+        .padding(.vertical, 6)
+        .padding(.horizontal, 8)
+        .background(
+            Capsule()
+                .stroke(Color.textColor.opacity(0.2), lineWidth: 0.7)
+        )
+    }
+    
+    @ViewBuilder private func Header() -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(String.Display.ex)
+                    .font(.footnote.bold())
+                    .padding(.leading, 2)
+                    .opacity(0.5)
+                Text(String.Display.chipGroup)
+                    .font(.title.bold())
+            }
+            Text(String.Display.deploymentTarget)
+                .environment(\.colorScheme, .light)
+                .font(.caption.bold())
+                .padding(.vertical, 6)
+                .padding(.horizontal, 14)
+                .background(
+                    Color.highlightColor
+                        .clipShape(Capsule())
+                )
+                
+        }
     }
     
     @ViewBuilder private func TitleField() -> some View {
@@ -61,66 +121,24 @@ struct ContentView: View {
             newTitle = ""
         }
         
-        VStack(alignment: .leading, spacing: 12) {
-            Text(verbatim: String.Display.title)
-                .font(.headline.bold())
+        VStack(alignment: .leading, spacing: 4) {
             HStack {
-                TextField(String.Display.enterChipTitle,
+                TextField(String.Display.addChip,
                           text: $newTitle,
                           onCommit: onCommit)
                 if !newTitle.isEmpty {
-                    let action: () -> Void = { newTitle = "" }
-                    
-                    Button(action: action) {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                    }
+                    ClearFieldButton()
                 }
             }
-            Color.textColor
-                .frame(height: 1.5)
+            Color.textColor.opacity(0.4)
+                .frame(height: 0.5)
         }
-    }
-    
-    @ViewBuilder private func DeleteButton() -> some View {
-        let action: () -> Void = { chips = [] }
-        let gradient = Gradient(
-            colors: [.white.opacity(0.05), .black.opacity(0.05)]
+        .padding(20)
+        .font(.caption.bold())
+        .background(
+            Color.altBackgroundColor
+                .clipShape(RoundedRectangle(cornerRadius: 12))
         )
-        
-        Button(action: action) {
-            Image(systemName: "trash")
-                .resizable()
-                .frame(width: 16.0, height: 18.0)
-                .padding(14)
-                .font(.system(size: 16.0, weight: .semibold))
-                .foregroundColor(.textColor)
-                .background(
-                    LinearGradient(
-                        gradient: gradient,
-                        startPoint: .trailing,
-                        endPoint: .leading
-                    )
-                    .clipShape(Circle())
-                )
-                .background(
-                    Color.backgroundColor
-                        .clipShape(Circle())
-                )
-                .background(
-                    Color.white.opacity(0.1)
-                        .clipShape(Circle())
-                        .offset(x: -2.0, y: -2.0)
-                        .blur(radius: 2.0)
-                )
-                .background(
-                    Color.black.opacity(0.2)
-                        .clipShape(Circle())
-                        .offset(x: 2.0, y: 2.0)
-                        .blur(radius: 2.0)
-                )
-        }
     }
 }
 

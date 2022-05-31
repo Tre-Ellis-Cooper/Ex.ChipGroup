@@ -9,6 +9,9 @@ import SwiftUI
 
 /// An extension housing color constants.
 extension Color {
-    static var backgroundColor = Color("BackgroundColor")
-    static var textColor = Color("TextColor")
+    static var altBackgroundColor = Color(String.AssetKey.altBackgroundColor)
+    static var backgroundColor = Color(String.AssetKey.backgroundColor)
+    static var altHightlightColor = Color(String.AssetKey.altHighlightColor)
+    static var highlightColor = Color(String.AssetKey.highlightColor)
+    static var textColor = Color(String.AssetKey.textColor)
 }
