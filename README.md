@@ -162,11 +162,11 @@ By owning the layout algorithm, the `ChipGroupLayout` keeps the view dumb and ma
 final class ChipGroupLayoutTests: XCTestCase {
     func test_execute_layoutTraitsForChipSizes() {
         let elements = [
-            Element(id: "Chip1"),
-            Element(id: "Chip2"),
-            Element(id: "Chip3"),
-            Element(id: "Chip4"),
-            Element(id: "Chip5")
+            Chip(title: "Chip1"),
+            Chip(title: "Chip2"),
+            Chip(title: "Chip3"),
+            Chip(title: "Chip4"),
+            Chip(title: "Chip5")
         ]
         let elementSizes = [
             "Chip1": CGSize(width: 20, height: 10),
@@ -177,7 +177,7 @@ final class ChipGroupLayoutTests: XCTestCase {
         ]
 
         let allowedWidth: CGFloat = 50
-        let spacing = (horizontal: 5, vertical: 5)
+        let spacing: ChipGroupLayout.Spacing = (horizontal: 5, vertical: 5)
         
         let layout = ChipGroupLayout(elements: elements)
         let traits = layout.traits(for: elementSizes, 
