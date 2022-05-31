@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FB70A0827BABB54005368D4 /* ExampleChipGroupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB70A0727BABB54005368D4 /* ExampleChipGroupApp.swift */; };
+		3FB70A0827BABB54005368D4 /* ChipGroupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB70A0727BABB54005368D4 /* ChipGroupApp.swift */; };
 		3FB70A0A27BABB54005368D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB70A0927BABB54005368D4 /* ContentView.swift */; };
 		3FB70A0C27BABB55005368D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB70A0B27BABB55005368D4 /* Assets.xcassets */; };
 		3FB70A0F27BABB55005368D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB70A0E27BABB55005368D4 /* Preview Assets.xcassets */; };
 		3FB70A1A27BABB55005368D4 /* ChipGroupLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB70A1927BABB55005368D4 /* ChipGroupLayoutTests.swift */; };
-		3FB70A2527BABB55005368D4 /* ExampleChipGroupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB70A2427BABB55005368D4 /* ExampleChipGroupUITests.swift */; };
+		3FB70A2527BABB55005368D4 /* ChipGroupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB70A2427BABB55005368D4 /* ChipGroupUITests.swift */; };
 		3FB70A3327BABB8E005368D4 /* View+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB70A3227BABB8E005368D4 /* View+Size.swift */; };
 		3FF3805B27FC974800412AF6 /* ChipGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3805A27FC974800412AF6 /* ChipGroup.swift */; };
 		3FF3805D27FC977D00412AF6 /* ChipGroupLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3805C27FC977D00412AF6 /* ChipGroupLayout.swift */; };
@@ -41,17 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3FB70A0427BABB54005368D4 /* ExampleChipGroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleChipGroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FB70A0727BABB54005368D4 /* ExampleChipGroupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleChipGroupApp.swift; sourceTree = "<group>"; };
+		3FB70A0427BABB54005368D4 /* ChipGroup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChipGroup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB70A0727BABB54005368D4 /* ChipGroupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipGroupApp.swift; sourceTree = "<group>"; };
 		3FB70A0927BABB54005368D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3FB70A0B27BABB55005368D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FB70A0E27BABB55005368D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FB70A1027BABB55005368D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FB70A1527BABB55005368D4 /* ExampleChipGroupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleChipGroupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB70A1527BABB55005368D4 /* ChipGroupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChipGroupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB70A1927BABB55005368D4 /* ChipGroupLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipGroupLayoutTests.swift; sourceTree = "<group>"; };
 		3FB70A1B27BABB55005368D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FB70A2027BABB55005368D4 /* ExampleChipGroupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleChipGroupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FB70A2427BABB55005368D4 /* ExampleChipGroupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleChipGroupUITests.swift; sourceTree = "<group>"; };
+		3FB70A2027BABB55005368D4 /* ChipGroupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChipGroupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB70A2427BABB55005368D4 /* ChipGroupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipGroupUITests.swift; sourceTree = "<group>"; };
 		3FB70A2627BABB55005368D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FB70A3227BABB8E005368D4 /* View+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Size.swift"; sourceTree = "<group>"; };
 		3FF3805A27FC974800412AF6 /* ChipGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipGroup.swift; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		3FB709FB27BABB53005368D4 = {
 			isa = PBXGroup;
 			children = (
-				3FB70A0627BABB54005368D4 /* ExampleChipGroup */,
-				3FB70A1827BABB55005368D4 /* ExampleChipGroupTests */,
-				3FB70A2327BABB55005368D4 /* ExampleChipGroupUITests */,
+				3FB70A0627BABB54005368D4 /* ChipGroup */,
+				3FB70A1827BABB55005368D4 /* ChipGroupTests */,
+				3FB70A2327BABB55005368D4 /* ChipGroupUITests */,
 				3FB70A0527BABB54005368D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,18 +101,18 @@
 		3FB70A0527BABB54005368D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3FB70A0427BABB54005368D4 /* ExampleChipGroup.app */,
-				3FB70A1527BABB55005368D4 /* ExampleChipGroupTests.xctest */,
-				3FB70A2027BABB55005368D4 /* ExampleChipGroupUITests.xctest */,
+				3FB70A0427BABB54005368D4 /* ChipGroup.app */,
+				3FB70A1527BABB55005368D4 /* ChipGroupTests.xctest */,
+				3FB70A2027BABB55005368D4 /* ChipGroupUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3FB70A0627BABB54005368D4 /* ExampleChipGroup */ = {
+		3FB70A0627BABB54005368D4 /* ChipGroup */ = {
 			isa = PBXGroup;
 			children = (
-				3FF3805927FC971F00412AF6 /* ChipGroup */,
-				3FB70A0727BABB54005368D4 /* ExampleChipGroupApp.swift */,
+				3FF3805927FC971F00412AF6 /* Source */,
+				3FB70A0727BABB54005368D4 /* ChipGroupApp.swift */,
 				3FB70A0927BABB54005368D4 /* ContentView.swift */,
 				3FF3806227FCBBA700412AF6 /* Chip.swift */,
 				3FF3806427FE70B400412AF6 /* String+Constants.swift */,
@@ -122,7 +122,7 @@
 				3FB70A1027BABB55005368D4 /* Info.plist */,
 				3FB70A0D27BABB55005368D4 /* Preview Content */,
 			);
-			path = ExampleChipGroup;
+			path = ChipGroup;
 			sourceTree = "<group>";
 		};
 		3FB70A0D27BABB55005368D4 /* Preview Content */ = {
@@ -133,25 +133,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3FB70A1827BABB55005368D4 /* ExampleChipGroupTests */ = {
+		3FB70A1827BABB55005368D4 /* ChipGroupTests */ = {
 			isa = PBXGroup;
 			children = (
 				3FB70A1927BABB55005368D4 /* ChipGroupLayoutTests.swift */,
 				3FB70A1B27BABB55005368D4 /* Info.plist */,
 			);
-			path = ExampleChipGroupTests;
+			path = ChipGroupTests;
 			sourceTree = "<group>";
 		};
-		3FB70A2327BABB55005368D4 /* ExampleChipGroupUITests */ = {
+		3FB70A2327BABB55005368D4 /* ChipGroupUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3FB70A2427BABB55005368D4 /* ExampleChipGroupUITests.swift */,
+				3FB70A2427BABB55005368D4 /* ChipGroupUITests.swift */,
 				3FB70A2627BABB55005368D4 /* Info.plist */,
 			);
-			path = ExampleChipGroupUITests;
+			path = ChipGroupUITests;
 			sourceTree = "<group>";
 		};
-		3FF3805927FC971F00412AF6 /* ChipGroup */ = {
+		3FF3805927FC971F00412AF6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				3FF3805A27FC974800412AF6 /* ChipGroup.swift */,
@@ -159,15 +159,15 @@
 				3FF3805E27FC992300412AF6 /* SizePreference.swift */,
 				3FB70A3227BABB8E005368D4 /* View+Size.swift */,
 			);
-			path = ChipGroup;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3FB70A0327BABB54005368D4 /* ExampleChipGroup */ = {
+		3FB70A0327BABB54005368D4 /* ChipGroup */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FB70A2927BABB55005368D4 /* Build configuration list for PBXNativeTarget "ExampleChipGroup" */;
+			buildConfigurationList = 3FB70A2927BABB55005368D4 /* Build configuration list for PBXNativeTarget "ChipGroup" */;
 			buildPhases = (
 				3FB70A0027BABB54005368D4 /* Sources */,
 				3FB70A0127BABB54005368D4 /* Frameworks */,
@@ -177,14 +177,14 @@
 			);
 			dependencies = (
 			);
-			name = ExampleChipGroup;
+			name = ChipGroup;
 			productName = "Wrapping ZStack";
-			productReference = 3FB70A0427BABB54005368D4 /* ExampleChipGroup.app */;
+			productReference = 3FB70A0427BABB54005368D4 /* ChipGroup.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3FB70A1427BABB55005368D4 /* ExampleChipGroupTests */ = {
+		3FB70A1427BABB55005368D4 /* ChipGroupTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FB70A2C27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ExampleChipGroupTests" */;
+			buildConfigurationList = 3FB70A2C27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ChipGroupTests" */;
 			buildPhases = (
 				3FB70A1127BABB55005368D4 /* Sources */,
 				3FB70A1227BABB55005368D4 /* Frameworks */,
@@ -195,14 +195,14 @@
 			dependencies = (
 				3FB70A1727BABB55005368D4 /* PBXTargetDependency */,
 			);
-			name = ExampleChipGroupTests;
+			name = ChipGroupTests;
 			productName = "Wrapping ZStackTests";
-			productReference = 3FB70A1527BABB55005368D4 /* ExampleChipGroupTests.xctest */;
+			productReference = 3FB70A1527BABB55005368D4 /* ChipGroupTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3FB70A1F27BABB55005368D4 /* ExampleChipGroupUITests */ = {
+		3FB70A1F27BABB55005368D4 /* ChipGroupUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3FB70A2F27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ExampleChipGroupUITests" */;
+			buildConfigurationList = 3FB70A2F27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ChipGroupUITests" */;
 			buildPhases = (
 				3FB70A1C27BABB55005368D4 /* Sources */,
 				3FB70A1D27BABB55005368D4 /* Frameworks */,
@@ -213,9 +213,9 @@
 			dependencies = (
 				3FB70A2227BABB55005368D4 /* PBXTargetDependency */,
 			);
-			name = ExampleChipGroupUITests;
+			name = ChipGroupUITests;
 			productName = "Wrapping ZStackUITests";
-			productReference = 3FB70A2027BABB55005368D4 /* ExampleChipGroupUITests.xctest */;
+			productReference = 3FB70A2027BABB55005368D4 /* ChipGroupUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -240,7 +240,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3FB709FF27BABB54005368D4 /* Build configuration list for PBXProject "ExampleChipGroup" */;
+			buildConfigurationList = 3FB709FF27BABB54005368D4 /* Build configuration list for PBXProject "ChipGroup" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -253,9 +253,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3FB70A0327BABB54005368D4 /* ExampleChipGroup */,
-				3FB70A1427BABB55005368D4 /* ExampleChipGroupTests */,
-				3FB70A1F27BABB55005368D4 /* ExampleChipGroupUITests */,
+				3FB70A0327BABB54005368D4 /* ChipGroup */,
+				3FB70A1427BABB55005368D4 /* ChipGroupTests */,
+				3FB70A1F27BABB55005368D4 /* ChipGroupUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,7 +297,7 @@
 				3FB70A0A27BABB54005368D4 /* ContentView.swift in Sources */,
 				3FB70A3327BABB8E005368D4 /* View+Size.swift in Sources */,
 				3FF3805F27FC992300412AF6 /* SizePreference.swift in Sources */,
-				3FB70A0827BABB54005368D4 /* ExampleChipGroupApp.swift in Sources */,
+				3FB70A0827BABB54005368D4 /* ChipGroupApp.swift in Sources */,
 				3FF3805B27FC974800412AF6 /* ChipGroup.swift in Sources */,
 				3FF3806727FE70D000412AF6 /* Color+Constants.swift in Sources */,
 				3FF3806327FCBBA700412AF6 /* Chip.swift in Sources */,
@@ -316,7 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FB70A2527BABB55005368D4 /* ExampleChipGroupUITests.swift in Sources */,
+				3FB70A2527BABB55005368D4 /* ChipGroupUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,12 +325,12 @@
 /* Begin PBXTargetDependency section */
 		3FB70A1727BABB55005368D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FB70A0327BABB54005368D4 /* ExampleChipGroup */;
+			target = 3FB70A0327BABB54005368D4 /* ChipGroup */;
 			targetProxy = 3FB70A1627BABB55005368D4 /* PBXContainerItemProxy */;
 		};
 		3FB70A2227BABB55005368D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3FB70A0327BABB54005368D4 /* ExampleChipGroup */;
+			target = 3FB70A0327BABB54005368D4 /* ChipGroup */;
 			targetProxy = 3FB70A2127BABB55005368D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -458,16 +458,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ExampleChipGroup/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ChipGroup/Preview Content\"";
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ExampleChipGroup/Info.plist;
+				INFOPLIST_FILE = ChipGroup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TreEllisCooper.ExampleChipGroup;
+				PRODUCT_BUNDLE_IDENTIFIER = TreEllisCooper.ChipGroup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,16 +480,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ExampleChipGroup/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ChipGroup/Preview Content\"";
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ExampleChipGroup/Info.plist;
+				INFOPLIST_FILE = ChipGroup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TreEllisCooper.ExampleChipGroup;
+				PRODUCT_BUNDLE_IDENTIFIER = TreEllisCooper.ChipGroup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,7 +514,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleChipGroup.app/ExampleChipGroup";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChipGroup.app/ChipGroup";
 			};
 			name = Debug;
 		};
@@ -536,7 +536,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleChipGroup.app/ExampleChipGroup";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChipGroup.app/ChipGroup";
 			};
 			name = Release;
 		};
@@ -583,7 +583,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3FB709FF27BABB54005368D4 /* Build configuration list for PBXProject "ExampleChipGroup" */ = {
+		3FB709FF27BABB54005368D4 /* Build configuration list for PBXProject "ChipGroup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FB70A2727BABB55005368D4 /* Debug */,
@@ -592,7 +592,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FB70A2927BABB55005368D4 /* Build configuration list for PBXNativeTarget "ExampleChipGroup" */ = {
+		3FB70A2927BABB55005368D4 /* Build configuration list for PBXNativeTarget "ChipGroup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FB70A2A27BABB55005368D4 /* Debug */,
@@ -601,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FB70A2C27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ExampleChipGroupTests" */ = {
+		3FB70A2C27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ChipGroupTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FB70A2D27BABB55005368D4 /* Debug */,
@@ -610,7 +610,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3FB70A2F27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ExampleChipGroupUITests" */ = {
+		3FB70A2F27BABB55005368D4 /* Build configuration list for PBXNativeTarget "ChipGroupUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3FB70A3027BABB55005368D4 /* Debug */,

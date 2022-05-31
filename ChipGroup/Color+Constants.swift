@@ -1,6 +1,6 @@
 //
 //  Color+Constants.swift
-//  ExampleChipGroup
+//  ChipGroup
 //
 //  Created by Tre Cooper on 4/6/22.
 //

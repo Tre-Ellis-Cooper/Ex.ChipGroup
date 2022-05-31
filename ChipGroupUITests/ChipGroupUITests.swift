@@ -1,13 +1,13 @@
 //
-//  ExampleChipGroupUITests.swift
-//  ExampleChipGroupUITests
+//  ChipGroupUITests.swift
+//  ChipGroupUITests
 //
 //  Created by Tre Cooper on 2/14/22.
 //
 
 import XCTest
 
-class ExampleChipGroupUITests: XCTestCase {
+class ChipGroupUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

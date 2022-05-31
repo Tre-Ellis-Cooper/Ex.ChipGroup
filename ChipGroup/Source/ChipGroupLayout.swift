@@ -1,6 +1,6 @@
 //
 //  ChipGroupLayout.swift
-//  ExampleChipGroup
+//  ChipGroup
 //
 //  Created by Tre Cooper on 4/5/22.
 //

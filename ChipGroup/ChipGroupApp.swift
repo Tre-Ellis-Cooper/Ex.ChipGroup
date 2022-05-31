@@ -1,6 +1,6 @@
 //
-//  ExampleChipGroupApp.swift
-//  ExampleChipGroup
+//  ChipGroupApp.swift
+//  ChipGroup
 //
 //  Created by Tre Cooper on 2/14/22.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct ExampleChipGroupApp: App {
+struct ChipGroupApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

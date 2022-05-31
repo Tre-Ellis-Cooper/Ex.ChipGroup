@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FB70A0327BABB54005368D4"
                BuildableName = "ExampleChipGroup.app"
-               BlueprintName = "ExampleChipGroup"
-               ReferencedContainer = "container:ExampleChipGroup.xcodeproj">
+               BlueprintName = "ChipGroup"
+               ReferencedContainer = "container:ChipGroup.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FB70A1427BABB55005368D4"
                BuildableName = "ExampleChipGroupTests.xctest"
-               BlueprintName = "ExampleChipGroupTests"
-               ReferencedContainer = "container:ExampleChipGroup.xcodeproj">
+               BlueprintName = "ChipGroupTests"
+               ReferencedContainer = "container:ChipGroup.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -44,8 +44,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3FB70A1F27BABB55005368D4"
                BuildableName = "ExampleChipGroupUITests.xctest"
-               BlueprintName = "ExampleChipGroupUITests"
-               ReferencedContainer = "container:ExampleChipGroup.xcodeproj">
+               BlueprintName = "ChipGroupUITests"
+               ReferencedContainer = "container:ChipGroup.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,8 +66,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FB70A0327BABB54005368D4"
             BuildableName = "ExampleChipGroup.app"
-            BlueprintName = "ExampleChipGroup"
-            ReferencedContainer = "container:ExampleChipGroup.xcodeproj">
+            BlueprintName = "ChipGroup"
+            ReferencedContainer = "container:ChipGroup.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -83,8 +83,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3FB70A0327BABB54005368D4"
             BuildableName = "ExampleChipGroup.app"
-            BlueprintName = "ExampleChipGroup"
-            ReferencedContainer = "container:ExampleChipGroup.xcodeproj">
+            BlueprintName = "ChipGroup"
+            ReferencedContainer = "container:ChipGroup.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
