@@ -19,8 +19,7 @@
 		3FF3805F27FC992300412AF6 /* SizePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3805E27FC992300412AF6 /* SizePreference.swift */; };
 		3FF3806127FCB8C400412AF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF3806027FCB8C400412AF6 /* Colors.xcassets */; };
 		3FF3806327FCBBA700412AF6 /* Chip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3806227FCBBA700412AF6 /* Chip.swift */; };
-		3FF3806527FE70B400412AF6 /* String+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3806427FE70B400412AF6 /* String+Constants.swift */; };
-		3FF3806727FE70D000412AF6 /* Color+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3806627FE70D000412AF6 /* Color+Constants.swift */; };
+		3FF3806527FE70B400412AF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF3806427FE70B400412AF6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +58,7 @@
 		3FF3805E27FC992300412AF6 /* SizePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreference.swift; sourceTree = "<group>"; };
 		3FF3806027FCB8C400412AF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3FF3806227FCBBA700412AF6 /* Chip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chip.swift; sourceTree = "<group>"; };
-		3FF3806427FE70B400412AF6 /* String+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Constants.swift"; sourceTree = "<group>"; };
-		3FF3806627FE70D000412AF6 /* Color+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Constants.swift"; sourceTree = "<group>"; };
+		3FF3806427FE70B400412AF6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +113,7 @@
 				3FB70A0727BABB54005368D4 /* ChipGroupApp.swift */,
 				3FB70A0927BABB54005368D4 /* ContentView.swift */,
 				3FF3806227FCBBA700412AF6 /* Chip.swift */,
-				3FF3806427FE70B400412AF6 /* String+Constants.swift */,
-				3FF3806627FE70D000412AF6 /* Color+Constants.swift */,
+				3FF3806427FE70B400412AF6 /* Constants.swift */,
 				3FB70A0B27BABB55005368D4 /* Assets.xcassets */,
 				3FF3806027FCB8C400412AF6 /* Colors.xcassets */,
 				3FB70A1027BABB55005368D4 /* Info.plist */,
@@ -292,14 +289,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF3806527FE70B400412AF6 /* String+Constants.swift in Sources */,
+				3FF3806527FE70B400412AF6 /* Constants.swift in Sources */,
 				3FF3805D27FC977D00412AF6 /* ChipGroupLayout.swift in Sources */,
 				3FB70A0A27BABB54005368D4 /* ContentView.swift in Sources */,
 				3FB70A3327BABB8E005368D4 /* View+Size.swift in Sources */,
 				3FF3805F27FC992300412AF6 /* SizePreference.swift in Sources */,
 				3FB70A0827BABB54005368D4 /* ChipGroupApp.swift in Sources */,
 				3FF3805B27FC974800412AF6 /* ChipGroup.swift in Sources */,
-				3FF3806727FE70D000412AF6 /* Color+Constants.swift in Sources */,
 				3FF3806327FCBBA700412AF6 /* Chip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -442,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -462,7 +458,7 @@
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ChipGroup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,7 +480,7 @@
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ChipGroup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,14 +499,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
-				INFOPLIST_FILE = ExampleChipGroupTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_FILE = ChipGroupTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tre-Cooper.ExampleChipGroupTests";
+				PRODUCT_BUNDLE_IDENTIFIER = TreEllisCooper.ChipGroupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,14 +521,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
-				INFOPLIST_FILE = ExampleChipGroupTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_FILE = ChipGroupTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tre-Cooper.ExampleChipGroupTests";
+				PRODUCT_BUNDLE_IDENTIFIER = TreEllisCooper.ChipGroupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -546,17 +542,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
-				INFOPLIST_FILE = ExampleChipGroupUITests/Info.plist;
+				INFOPLIST_FILE = ChipGroupUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tre-Cooper.ExampleChipGroupUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tre-Cooper.ChipGroupUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ExampleChipGroup;
+				TEST_TARGET_NAME = ChipGroup;
 			};
 			name = Debug;
 		};
@@ -566,17 +562,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2VPUS54DTV;
-				INFOPLIST_FILE = ExampleChipGroupUITests/Info.plist;
+				INFOPLIST_FILE = ChipGroupUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Tre-Cooper.ExampleChipGroupUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tre-Cooper.ChipGroupUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ExampleChipGroup;
+				TEST_TARGET_NAME = ChipGroup;
 			};
 			name = Release;
 		};

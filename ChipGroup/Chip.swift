@@ -8,10 +8,27 @@
 import SwiftUI
 
 /// A struct representing an example chip element.
-struct Chip {
-    let title: String
+struct Chip: Identifiable {
+    let id: String
+    let name: String
+    
+    init(id: String = UUID().uuidString, name: String) {
+        self.id = id
+        self.name = name
+    }
 }
 
-extension Chip: Identifiable {
-    var id: String { title }
+// MARK: - Test Data
+extension Chip {
+    static let testSet = [
+        Chip(name: "#swiftui"),
+        Chip(name: "#ios"),
+        Chip(name: "#codetoinspire"),
+        Chip(name: "#iosdevelopment"),
+        Chip(name: "#uiux"),
+        Chip(name: "#xcode"),
+        Chip(name: "#frontend"),
+        Chip(name: "#swift"),
+        Chip(name: "#appdevelopment")
+    ]
 }

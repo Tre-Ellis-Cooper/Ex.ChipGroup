@@ -1,28 +1,65 @@
 <picture>
-    <source srcset="https://user-images.githubusercontent.com/79422649/170741528-08304d35-5d8d-4593-b50d-8cfe8ac573eb.gif" media="(prefers-color-scheme: dark)">
-    <source srcset="https://user-images.githubusercontent.com/79422649/170740573-bf129a0c-4031-4fdc-ba4e-dbf68c65fd6b.gif" media="(prefers-color-scheme: light)">
-    <img src="https://user-images.githubusercontent.com/79422649/170740573-bf129a0c-4031-4fdc-ba4e-dbf68c65fd6b.gif" width="230" height="100">
+    <source srcset="../../../Ex.Media/blob/develop/ChipGroup/ChipGroupDemo-Dark.gif" media="(prefers-color-scheme: dark)">
+    <source srcset="../../../Ex.Media/blob/develop/ChipGroup/ChipGroupDemo-Light.gif" media="(prefers-color-scheme: light)">
+    <img src="../../../Ex.Media/blob/develop/ChipGroup/ChipGroupDemo-Light.gif" align="left" width="345" height="460">
+</picture>
+
+<img src="../../../Ex.Media/blob/develop/Misc/Spacer.png" width="140" height="0">
+
+<picture>
+    <source srcset="../../../Ex.Media/blob/develop/Logo/Logo-Dark.png" media="(prefers-color-scheme: dark)">
+    <source srcset="../../../Ex.Media/blob/develop/Logo/Logo-Light.png" media="(prefers-color-scheme: light)">
+    <img src="../../../Ex.Media/blob/develop/Logo/Logo-Light.png" width="140" height="59">
 </picture>
 
 # ChipGroup - SwiftUI
 
-#### Explore an example implementation of a Material-inspired ChipGroup in SwiftUI.
-###### In the Example Series, I explore solutions to custom UI/UX systems and components, focusing on adaptability, testability, and efficiency.
+#### Explore an example, Material-inspired ChipGroup.
+###### In the Example Series, we engineer solutions to custom UI/UX systems and components, focusing on production quality code.
 ###### Stay tuned for updates to the series:
 [![Follow](https://img.shields.io/github/followers/Tre-Ellis-Cooper?style=social)](https://github.com/Tre-Ellis-Cooper)
 
+[![LinkedIn](https://img.shields.io/static/v1?style=social&logo=linkedin&label=LinkedIn&message=Tre%27Ellis%20Cooper)](https://www.linkedin.com/in/tre-ellis-cooper-629306106/)&nbsp;
+[![Twitter](https://img.shields.io/static/v1?style=social&logo=twitter&label=Twitter&message=@_cooperlative)](https://www.twitter.com/_cooperlative/)&nbsp;
+[![Instagram](https://img.shields.io/static/v1?style=social&logo=instagram&label=Instagram&message=@_cooperlative)](https://www.instagram.com/_cooperlative/)
+
 ![Repo Size](https://img.shields.io/github/repo-size/Tre-Ellis-Cooper/Ex.ChipGroup?color=green)
-![Lines of Code](https://img.shields.io/tokei/lines/github/Tre-Ellis-Cooper/Ex.ChipGroup?color=green&label=lines%20of%20code)
+![Lines of Code](https://img.shields.io/tokei/lines/github/Tre-Ellis-Cooper/Ex.ChipGroup?color=green&label=lines)
 ![Last Commit](https://img.shields.io/github/last-commit/Tre-Ellis-Cooper/Ex.ChipGroup?color=C23644)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Tre'Ellis%20Cooper-blue)](https://www.linkedin.com/in/tre-ellis-cooper-629306106)
+<br>
 
-## Code Discussion
-### Adaptability
+## Usage
 
-To make sure this `ChipGroup` implementation could be easily adapted without changing its implementation, I opted for an initializer that resembles a `ForEach` element:
+#### Using the ChipGroup is easy:
+* Initialize a ChipGroup with a collection of `Identifiable` elements and a closure to convert each element into your desired `View`.
+```swift
+struct ExampleView: View {
+    let elements: [Element] // Any Identifiable Collection
+
+    var body: some View {
+        ChipGroup(elements: elements) { element in
+            Text(element.name) // Any view building closure
+        }
+    }
+}
+```
+
+<br>
+
+Try adding the `Source` directory to your project to use the chip group in your app!
+
+## Exploration
+
+<details>
+    
+<summary>Code Design</summary>
+
+### Code Design
+
+To make sure the `ChipGroup` could be easily adapted without changing its implementation, I opted for an initializer that resembles the `ForEach` element:
 ```swift
 struct ChipGroup<Element: Identifiable, Chip: View>: View {
-    let chipView: (Element) -> Chipa
+    let chipView: (Element) -> Chip
     let elements: [Elements]
 
     ...
@@ -39,7 +76,7 @@ struct ChipGroup<Element: Identifiable, Chip: View>: View {
 
 <br>
 
-This way, like the `ForEach`, we end up with an implementation that is decoupled from a predetermined datasource or visual treatment. We are free to provide any chip view and backing data structure we like, like so:
+This way, like the `ForEach`, we end up with an implementation decoupled from any predetermined data source or visual treatment. We are free to provide any chip view and backing data structure we like:
 ```swift
 struct ExampleView: View {
     let elements: [Element] // Any Identifiable Collection
@@ -54,9 +91,9 @@ struct ExampleView: View {
 
 <br>
 
-To make sure the `ChipGroup` worked well in various layouts, I made creative use of two components: the `Spacer` and the `GeometryReader`. The `Spacer` allows the `ChipGroup` to expand to fill the permitted width. While the `GeometryReader` provides the allowed width and the chip sizes.
+Two components help to ensure that the `ChipGroup` works properly in any layout: `Spacer` and `GeometryReader`. The `Spacer` forces the `ChipGroup` to expand to fill its container horizontally. While the `GeometryReader` provides the container width and the chip sizes for logic.
 
-Typically, to access the container attributes, we would wrap the desired component in a `GeometryReader`. In this case however, that doesn't provide the functionality you might expect. Instead I chose to place a `GeometryReader` in the background of a `Spacer` to determine the allowed width, like so:
+Typically, we would wrap our component in a `GeometryReader` to access the container size. However, that doesn't provide what we expect if the element happens to be in a `ScrollView`. Instead, I placed a `GeometryReader` in the background of a `Spacer` to determine the allowed width, like so:
 ```swift
 Spacer()
     .background(
@@ -68,9 +105,13 @@ Spacer()
 
 <br>
 
-This allowes the element to expand to fill the provided with using the `Spacer` and then providing that width using a `GeometryReader`. I used the same approach to determine the size of the chip views, so I created two custom view modifiers for readability: `relaySizeData` and `readSizeData`. These modifiers use a custom `PreferenceKey` to make a view's size available to its parents:
+This forces the `ChipGroup` to expand to fill its container and then exposes the container width using a `GeometryReader`.
+
+I rely on the same approach to determine the size of the chip views, so I created two reusable view modifiers for readability that encapsulate this approach: `relaySizeData` and `readSizeData`. These modifiers use a custom `PreferenceKey` to make the view's size available to parent views:
 ```swift
-func readSizeData<KeyType: Hashable>(closure: @escaping ([KeyType: CGSize]) -> Void) -> some View {
+func readSizeData<KeyType: Hashable>(
+    closure: @escaping ([KeyType: CGSize]
+) -> Void) -> some View {
     self.onPreferenceChange(SizePreference<KeyType>.self, perform: closure)
 }
 
@@ -78,7 +119,10 @@ func relaySizeData<KeyType: Hashable>(withKey key: KeyType) -> some View {
     self.background(
         GeometryReader { proxy in
             Spacer()
-                .preference(key: SizePreference<KeyType>.self, value: [key: proxy.size])
+                .preference(
+                    key: SizePreference<KeyType>.self, 
+                    value: [key: proxy.size]
+                )
         }
     )
 }
@@ -86,9 +130,55 @@ func relaySizeData<KeyType: Hashable>(withKey key: KeyType) -> some View {
 
 <br>
 
-With access to the allowed width and chip sizes, the `ChipGroup` implementation dynamically positions its chips and therefore has an intrinsic size.
+By using these modifiers to access the container width and chip sizes, the `ChipGroup` can dynamically position its chips and maintain an intrinsic height:
+```swift
+struct ChipGroup<Element: Identifiable, Chip: View>: View {
+    let chipView: (Element) -> Chip
+    let elements: [Element]
+    
+    @State private var chipSizes = [Element.ID: CGSize]()
+    @State private var allowedWidth = CGFloat.zero
 
-### Testability
+    ...
+    
+    var body: some View {
+        let traits = ChipGroupLayout(elements: elements)
+            .traits(for: chipSizes, in: allowedWidth, with: chipSpacing)
+        
+        return VStack(spacing: .zero) {
+            Spacer()
+                ...
+                .relaySizeData(withKey: allowedWidthKey)
+            ZStack(alignment: .topLeading) {
+                ForEach(traits) { trait in
+                    chipView(trait.element)
+                        ...
+                        .relaySizeData(withKey: trait.element.id)
+                        .alignmentGuide(.leading) { _ in -trait.position.x }
+                        .alignmentGuide(.top) { _ in -trait.position.y }
+                }
+            }
+
+            ...
+        }
+        .readSizeData { chipSizes = $0 }
+        .readSizeData(forKey: allowedWidthKey) { allowedWidth = $0.width }
+    }
+    
+    ...
+}
+```
+
+After walking through how the ChipGroup is built, would you agree it's easy to use and adapt to different use cases!? Check out the `Code Testing` section for more information on the `ChipGroupLayout` object.
+
+</details>
+
+<details>
+
+<summary>Code Testing</summary>
+    
+### Code Testing
+
 To facilitate testability, I took some theory from the Strategy Behavioral pattern and abstracted the layout algorithm into an object:
 ```swift
 struct ChipGroupLayout<Element: Identifiable> {
@@ -105,9 +195,11 @@ The `ChipGroupLayout` has a single function that accepts the layout parameters a
 struct ChipGroupLayout<Element: Identifiable> {
     ...
 
-    func traitsForChipSizes(_ chipSizes: [Element.ID: CGSize],
-                            in containerWidth: CGFloat,
-                            with spacing: Spacing) -> [Trait] {
+    func traitsForChipSizes(
+        _ chipSizes: [Element.ID: CGSize],
+        in containerWidth: CGFloat,
+        with spacing: Spacing
+    ) -> [Trait] {
         ...
     }
 
@@ -126,16 +218,18 @@ struct ChipGroupLayout<Element: Identifiable> {
 
 <br>
 
-The `ChipGroup` element is able to call this function and use the `alignmentGuide` modifier to position the chip views according to the trait objects, like so:
+The `ChipGroup` element calls this function and uses the `alignmentGuide` modifier to position the chip views according to the trait objects, like so:
 ```swift
 struct ChipGroup<Element: Identifiable, Chip: View>: View {
     ...
     
     var body: some View {
         let layout = ChipGroupLayout(elements: elements)
-        let traits = layout.traits(for: chipSizes,
-                                   in: allowedWidth,
-                                   with: chipSpacing)
+        let traits = layout.traits(
+            for: chipSizes,
+            in: allowedWidth,
+            with: chipSpacing
+        )
         
         return VStack(spacing: .zero) {
             ...
@@ -157,7 +251,7 @@ struct ChipGroup<Element: Identifiable, Chip: View>: View {
 
 <br>
 
-By owning the layout algorithm, the `ChipGroupLayout` keeps the view dumb and makes the chip-positioning logic easily testable. For example:
+By owning the layout algorithm, the `ChipGroupLayout` keeps the `ChipGroup` view dumb and makes the chip-positioning logic easily testable. For example:
 ```swift
 final class ChipGroupLayoutTests: XCTestCase {
     func test_execute_layoutTraitsForChipSizes() {
@@ -203,9 +297,11 @@ final class ChipGroupLayoutTests: XCTestCase {
 
 <br>
 
-We can test to make sure the `ChipGroupLayout` positions chips the way we would expect given any container width, chip sizes, and chip spacing. 
+We can test to make sure the `ChipGroupLayout` positions chips the way we would expect given any container width, chip sizes, and chip spacing.
 
-### Efficiency
-Although the `ChipGroup` does compute the chip view positions linearly every layout pass, that seems necessary to ensure the chip view positions are always correct. 
+</details>
 
-For instance, consider an orientation change from portrait to landscape. The `ChipGroup` has no choice but to recompute its layout as more chips may be able to fit on a single line.
+###### Do you agree that the design is adaptative and easy to use? Have any questions, comments, or just want to give feedback? Share your ideas with me on social media:
+[![LinkedIn](https://img.shields.io/static/v1?style=social&logo=linkedin&label=LinkedIn&message=Tre%27Ellis%20Cooper)](https://www.linkedin.com/in/tre-ellis-cooper-629306106/)&nbsp;
+[![Twitter](https://img.shields.io/static/v1?style=social&logo=twitter&label=Twitter&message=@_cooperlative)](https://www.twitter.com/_cooperlative/)&nbsp;
+[![Instagram](https://img.shields.io/static/v1?style=social&logo=instagram&label=Instagram&message=@_cooperlative)](https://www.instagram.com/_cooperlative/)

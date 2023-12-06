@@ -17,7 +17,9 @@ extension View {
     ///         key type. For example, specifiying a `KeyType` of `String`
     ///         will gather all size data with a `String` key type.
     /// - parameter closure: The closure to perform with new size data.
-    func readSizeData<KeyType: Hashable>(closure: @escaping ([KeyType: CGSize]) -> Void) -> some View {
+    func readSizeData<KeyType: Hashable>(
+        closure: @escaping ([KeyType: CGSize]) -> Void
+    ) -> some View {
         self.onPreferenceChange(SizePreference<KeyType>.self, perform: closure)
     }
     
@@ -26,8 +28,10 @@ extension View {
     ///
     /// - parameter key: The key who's size value you wish to read.
     /// - parameter closure: The closure to perform with size data.
-    func readSizeData<KeyType: Hashable>(forKey key: KeyType,
-                                         closure: @escaping (CGSize) -> Void) -> some View {
+    func readSizeData<KeyType: Hashable>(
+        forKey key: KeyType,
+        closure: @escaping (CGSize) -> Void
+    ) -> some View {
         self.onPreferenceChange(SizePreference<KeyType>.self) { data in
             DispatchQueue.main.async {
                 closure(data[key] ?? .zero)
@@ -43,7 +47,10 @@ extension View {
         self.background(
             GeometryReader { proxy in
                 Spacer()
-                    .preference(key: SizePreference<KeyType>.self, value: [key: proxy.size])
+                    .preference(
+                        key: SizePreference<KeyType>.self,
+                        value: [key: proxy.size]
+                    )
             }
         )
     }

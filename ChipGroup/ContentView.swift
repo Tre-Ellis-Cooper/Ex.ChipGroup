@@ -7,138 +7,258 @@
 
 import SwiftUI
 
+private typealias Strings = Constants.Strings
+private typealias Colors = Constants.Assets.Colors
+private typealias Icons = Constants.Assets.Icons
+
 struct ContentView: View {
-    @State private var newTitle = ""
-    @State private var focused = false
-    @State private var chips = [
-        Chip(title: String.Display.exampleChip)
-    ]
+    @State private var newChipName = ""
+    @State private var resizing = false
+    @State private var translation = CGFloat.zero
+    @State private var lastTranslation = CGFloat.zero
+    @State private var chips = Chip.testSet
+    
+    let allowedTranslation =  CGFloat.zero ... 200
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 40) {
-                Header()
-                VStack(alignment: .leading, spacing: 12) {
-                    TitleField()
-                    ChipContainer()
-                }
+        ZStack(alignment: .bottomTrailing) {
+            Colors.primaryBackground
+                .ignoresSafeArea(edges: .all)
+            VStack(alignment: .leading, spacing: 30) {
+                Heading()
+                ChipSection()
             }
-            .padding(20)
+            .padding(25)
+            TrashButton()
         }
-        .foregroundColor(.textColor)
-        .background(
-            Color.backgroundColor
-                .edgesIgnoringSafeArea(.all)
-        )
+        .foregroundColor(Colors.primaryText)
     }
-    
-    @ViewBuilder private func ClearFieldButton() -> some View {
-        let action: () -> Void = { newTitle = "" }
-        
-        Button(action: action) {
-            Image(systemName: String.AssetKey.closeIcon)
-                .resizable()
-                .frame(width: 13, height: 13)
-        }
-    }
-    
-    @ViewBuilder private func ClearChipButton() -> some View {
-        let action: () -> Void = { chips = [] }
-        let disabled = chips.isEmpty
-        
-        Button(action: action) {
-            Label(String.Display.clearAll,
-                  systemImage: String.AssetKey.trashIcon)
-        }
-        .foregroundColor(Color.altHightlightColor)
-        .opacity(disabled ? 0.4 : 1)
-        .disabled(disabled)
-    }
-    
-    @ViewBuilder private func ChipContainer() -> some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack {
-                Text(String.Display.chips)
-                Spacer()
-                ClearChipButton()
-            }
-            .font(.footnote.bold())
+}
 
-            // MARK: ChipGroup
-            ChipGroup(elements: chips, chipView: ChipView)
-                .padding()
-                .background(
-                    Color.altBackgroundColor
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                )
+// MARK: - View Components
+extension ContentView {
+    @ViewBuilder private func Border<S: InsettableShape>(
+        _ InsettableShape: S,
+        _ Color: Color = Colors.secondaryText
+    ) -> some View {
+        Color
+            .clipShape(
+                InsettableShape
+                    .inset(by: 0.5)
+                    .stroke()
+            )
+    }
+    
+    @ViewBuilder private func ChipSection() -> some View {
+        VStack(alignment: .leading, spacing: 24) {
+            NewChipField()
+            ResizableChipWindow()
         }
     }
     
     @ViewBuilder private func ChipView(_ chip: Chip) -> some View {
-        HStack(spacing: 6) {
-            Text(chip.title)
+        let action = { chips.removeAll{ $0.id == chip.id } }
+        
+        HStack(spacing: 8) {
+            Text(chip.name)
                 .bold()
-            Color.textColor.opacity(0.2)
-                .frame(width: 1)
-            Text("\(chip.title.count)")
-                .opacity(0.5)
+            Button(action: action) {
+                Icons.close
+                    .resizable()
+                    .frame(width: 8, height: 8)
+            }
         }
         .font(.caption)
-        .padding(.vertical, 6)
-        .padding(.horizontal, 8)
+        .padding(.vertical, 8)
+        .padding(.horizontal, 14)
         .background(
-            Capsule()
-                .stroke(Color.textColor.opacity(0.2), lineWidth: 0.7)
+            Colors.secondaryBackground
+                .clipShape(Capsule())
         )
     }
     
-    @ViewBuilder private func Header() -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            VStack(alignment: .leading, spacing: 2) {
-                Text(String.Display.ex)
+    @ViewBuilder private func ChipWindow() -> some View {
+        ScrollView {
+            // MARK: ChipGroup
+            ChipGroup(elements: chips, chipView: ChipView)
+                .padding()
+        }
+    }
+    
+    @ViewBuilder private func ChipWindowAfterImage() -> some View {
+        DottedBorder(RoundedRectangle(cornerRadius: 12))
+    }
+    
+    @ViewBuilder private func DottedBorder<S: InsettableShape>(
+        _ InsettableShape: S,
+        _ Color: Color = Colors.secondaryText.opacity(0.2)
+    ) -> some View {
+        Color
+            .clipShape(
+                InsettableShape
+                    .inset(by: 0.5)
+                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [7]))
+            )
+    }
+    
+    @ViewBuilder private func Heading() -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading) {
+                Text(Strings.ex)
                     .font(.footnote.bold())
-                    .padding(.leading, 2)
                     .opacity(0.5)
-                Text(String.Display.chipGroup)
+                Text(Strings.chipGroup)
                     .font(.title.bold())
             }
-            Text(String.Display.deploymentTarget)
-                .environment(\.colorScheme, .light)
+            Text(Strings.deploymentTarget)
                 .font(.caption.bold())
-                .padding(.vertical, 6)
+                .padding(.vertical, 8)
                 .padding(.horizontal, 14)
-                .background(
-                    Color.highlightColor
-                        .clipShape(Capsule())
-                )
-                
+                .overlay(Border(Capsule()))
         }
     }
     
-    @ViewBuilder private func TitleField() -> some View {
-        let onCommit: () -> Void = {
-            chips.append(.init(title: newTitle))
-            newTitle = ""
-        }
-        
-        VStack(alignment: .leading, spacing: 4) {
+    @ViewBuilder private func NewChipField() -> some View {
+        VStack(alignment: .leading, spacing: 8) {
             HStack {
-                TextField(String.Display.addChip,
-                          text: $newTitle,
-                          onCommit: onCommit)
-                if !newTitle.isEmpty {
-                    ClearFieldButton()
+                TextField(Strings.addChip, text: $newChipName)
+                    .onSubmit(createNewChip)
+                if newChipName.count > 3 {
+                    Button(action: clearChipField) {
+                        Icons.close
+                            .resizable()
+                            .frame(width: 10, height: 10)
+                    }
                 }
             }
-            Color.textColor.opacity(0.4)
-                .frame(height: 0.5)
+            Colors.primaryText
+                .frame(height: 1)
         }
-        .padding(20)
         .font(.caption.bold())
-        .background(
-            Color.altBackgroundColor
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-        )
+        .padding(.horizontal, 10)
+    }
+    
+    @ViewBuilder private func ResizableBorder() -> some View {
+        ZStack(alignment: .trailing) {
+            Border(RoundedRectangle(cornerRadius: 12))
+                .allowsHitTesting(false)
+            ResizeHandle()
+        }
+    }
+    
+    @ViewBuilder private func ResizableChipWindow() -> some View {
+        ZStack {
+            if resizing {
+                ChipWindowAfterImage()
+                    .padding(.trailing, lastTranslation)
+            }
+            ChipWindow()
+                .overlay(ResizableBorder())
+                .padding(.trailing, translation)
+        }
+    }
+    
+    @ViewBuilder private func ResizeHandle() -> some View {
+        let Color = resizing ?
+            Colors.primaryText :
+            Colors.primaryBackground
+        Color
+            .clipShape(Capsule())
+            .overlay(Border(Capsule()))
+            .overlay(ResizeIcon())
+            .frame(width: 10, height: 45)
+            .scaleEffect(y: resizing ? 1.10 : 1)
+            .animation(.snappy, value: resizing)
+            .offset(x: 5)
+            .gesture(
+                DragGesture(minimumDistance: .zero)
+                    .onEnded(commitResize)
+                    .onChanged(updateTranslation)
+            )
+    }
+    
+    @ViewBuilder private func ResizeIcon() -> some View {
+        let Color = resizing ?
+            Colors.primaryBackground :
+            Colors.primaryText
+        VStack(spacing: 3) {
+            ForEach(0 ..< 5) { _ in
+                Color
+                    .frame(height: 1)
+            }
+        }
+        .padding(.horizontal, 2)
+    }
+    
+    @ViewBuilder private func TrashButton() -> some View {
+        Button(action: deleteAllChips) {
+            Icons.trash
+                .resizable()
+                .frame(width: 20, height: 25)
+                .padding(.horizontal, 25)
+                .padding(.vertical, 12)
+                .background(
+                    Colors.highlight,
+                    ignoresSafeAreaEdges: .horizontal
+                )
+                .foregroundColor(Colors.primaryBackground)
+        }
+    }
+}
+
+// MARK: - Helper Functions / Behavior
+extension ContentView {
+    private func animateChipWindow(to value: CGFloat) {
+        resizing = false
+        lastTranslation = value
+        withAnimation(.snappy(extraBounce: 0.1)) {
+            translation = value
+        }
+    }
+    
+    private func clearChipField() {
+        newChipName = Strings.empty
+    }
+    
+    private func commitResize(_: DragGesture.Value) {
+        guard translation <= allowedTranslation.upperBound else {
+            animateChipWindow(to: allowedTranslation.upperBound)
+            return
+        }
+        guard translation >= allowedTranslation.lowerBound else {
+            animateChipWindow(to: allowedTranslation.lowerBound)
+            return
+        }
+        
+        resizing = false
+        lastTranslation = translation
+    }
+    
+    private func createNewChip() {
+        chips.append(Chip(name: newChipName))
+        clearChipField()
+    }
+    
+    private func deleteAllChips() {
+        chips = []
+    }
+    
+    private func rubberBandValue(_ value: CGFloat) -> CGFloat {
+        let limit = allowedTranslation.upperBound
+        
+        return value > .zero ?
+            limit * (1 + log10(value/limit)) :
+            -((limit * (1 + log10((-value + limit)/limit))) - limit)
+    }
+    
+    private func updateTranslation(_ value: DragGesture.Value) {
+        let delta = -value.translation.width
+        let newTranslation = translation + delta
+        let validTranslation = allowedTranslation ~= newTranslation
+        
+        resizing = true
+        translation = validTranslation ?
+            newTranslation : rubberBandValue(newTranslation)
     }
 }
 

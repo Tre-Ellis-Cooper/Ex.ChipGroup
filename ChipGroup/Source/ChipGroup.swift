@@ -28,10 +28,8 @@ struct ChipGroup<Element: Identifiable, Chip: View>: View {
     }
     
     var body: some View {
-        let layout = ChipGroupLayout(elements: elements)
-        let traits = layout.traits(for: chipSizes,
-                                   in: allowedWidth,
-                                   with: chipSpacing)
+        let traits = ChipGroupLayout(elements: elements)
+            .traits(for: chipSizes, in: allowedWidth, with: chipSpacing)
         
         return VStack(spacing: .zero) {
             Spacer()
@@ -47,14 +45,14 @@ struct ChipGroup<Element: Identifiable, Chip: View>: View {
                         .alignmentGuide(.top) { _ in -trait.position.y }
                 }
             }
-            .frame(minWidth: .zero,
-                   maxWidth: .infinity,
-                   alignment: .leading)
+            .frame(
+                minWidth: .zero,
+                maxWidth: .infinity,
+                alignment: .leading
+            )
         }
         .readSizeData { chipSizes = $0 }
-        .readSizeData(forKey: allowedWidthKey) {
-            allowedWidth = $0.width
-        }
+        .readSizeData(forKey: allowedWidthKey) { allowedWidth = $0.width }
     }
     
     /// Sets the spacing between chips within this chip group element.
