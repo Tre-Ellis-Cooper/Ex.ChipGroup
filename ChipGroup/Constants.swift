@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+typealias Strings = Constants.Strings
+typealias Colors = Constants.Assets.Colors
+typealias Icons = Constants.Assets.Icons
+
 /// An enum housing general constants for the example app.
 enum Constants {
     enum Strings {

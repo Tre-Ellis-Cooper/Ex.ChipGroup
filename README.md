@@ -4,28 +4,31 @@
     <img src="../../../Ex.Media/blob/develop/ChipGroup/ChipGroupDemo-Light.gif" align="left" width="345" height="460">
 </picture>
 
-<img src="../../../Ex.Media/blob/develop/Misc/Spacer.png" width="140" height="0">
+<img src="../../../Ex.Media/blob/develop/Misc/Spacer.png" width="428" height="0">
 
 <picture>
-    <source srcset="../../../Ex.Media/blob/develop/Logo/Logo-Dark.png" media="(prefers-color-scheme: dark)">
-    <source srcset="../../../Ex.Media/blob/develop/Logo/Logo-Light.png" media="(prefers-color-scheme: light)">
-    <img src="../../../Ex.Media/blob/develop/Logo/Logo-Light.png" width="140" height="59">
+    <!-- Original: 950 x 130 | Adjusted: 1/2 @ 90% -->
+    <source srcset="../../../Ex.Media/blob/develop/ChipGroup/ChipGroupLogo-Dark.png" media="(prefers-color-scheme: dark)">
+    <source srcset="../../../Ex.Media/blob/develop/ChipGroup/ChipGroupLogo-Light.png" media="(prefers-color-scheme: light)">
+    <img src="../../../Ex.Media/blob/develop/ChipGroup/ChipGroupLogo-Light.png" width="428" height="59">
 </picture>
 
-# ChipGroup - SwiftUI
-
 #### Explore an example, Material-inspired ChipGroup.
-###### In the Example Series, we engineer solutions to custom UI/UX systems and components, focusing on production quality code.
+###### In the Example Series, we engineer solutions to custom UI/UX <br> systems and components, focusing on production quality code.
 ###### Stay tuned for updates to the series:
 [![Follow](https://img.shields.io/github/followers/Tre-Ellis-Cooper?style=social)](https://github.com/Tre-Ellis-Cooper)
 
+<br>
+
 [![LinkedIn](https://img.shields.io/static/v1?style=social&logo=linkedin&label=LinkedIn&message=Tre%27Ellis%20Cooper)](https://www.linkedin.com/in/tre-ellis-cooper-629306106/)&nbsp;
-[![Twitter](https://img.shields.io/static/v1?style=social&logo=twitter&label=Twitter&message=@_cooperlative)](https://www.twitter.com/_cooperlative/)&nbsp;
+[![Twitter](https://img.shields.io/static/v1?style=social&logo=x&label=Twitter&message=@_cooperlative)](https://www.twitter.com/_cooperlative/)<br>
 [![Instagram](https://img.shields.io/static/v1?style=social&logo=instagram&label=Instagram&message=@_cooperlative)](https://www.instagram.com/_cooperlative/)
 
-![Repo Size](https://img.shields.io/github/repo-size/Tre-Ellis-Cooper/Ex.ChipGroup?color=green)
-![Lines of Code](https://img.shields.io/tokei/lines/github/Tre-Ellis-Cooper/Ex.ChipGroup?color=green&label=lines)
+<br>
+
+![Repo Size](https://img.shields.io/github/repo-size/Tre-Ellis-Cooper/Ex.ChipGroup?color=green)&nbsp;
 ![Last Commit](https://img.shields.io/github/last-commit/Tre-Ellis-Cooper/Ex.ChipGroup?color=C23644)
+
 <br>
 
 ## Usage
@@ -303,5 +306,5 @@ We can test to make sure the `ChipGroupLayout` positions chips the way we would 
 
 ###### Do you agree that the design is adaptative and easy to use? Have any questions, comments, or just want to give feedback? Share your ideas with me on social media:
 [![LinkedIn](https://img.shields.io/static/v1?style=social&logo=linkedin&label=LinkedIn&message=Tre%27Ellis%20Cooper)](https://www.linkedin.com/in/tre-ellis-cooper-629306106/)&nbsp;
-[![Twitter](https://img.shields.io/static/v1?style=social&logo=twitter&label=Twitter&message=@_cooperlative)](https://www.twitter.com/_cooperlative/)&nbsp;
+[![Twitter](https://img.shields.io/static/v1?style=social&logo=x&label=Twitter&message=@_cooperlative)](https://www.twitter.com/_cooperlative/)&nbsp;
 [![Instagram](https://img.shields.io/static/v1?style=social&logo=instagram&label=Instagram&message=@_cooperlative)](https://www.instagram.com/_cooperlative/)
