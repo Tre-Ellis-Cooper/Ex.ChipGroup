@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-private typealias Strings = Constants.Strings
-private typealias Colors = Constants.Assets.Colors
-private typealias Icons = Constants.Assets.Icons
-
 struct ContentView: View {
     @State private var newChipName = ""
     @State private var resizing = false

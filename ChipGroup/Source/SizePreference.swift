@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A preference key that allows the propogation of CGSize data
-/// for a SwiftUI view.
+/// witin the SwiftUI view hierarchy.
 struct SizePreference<KeyType: Hashable>: PreferenceKey {
     typealias Value = [KeyType: CGSize]
     
